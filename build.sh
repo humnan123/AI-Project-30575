@@ -1,14 +1,8 @@
 #!/bin/bash
-# Render build script — runs once before server starts
-set -e
+set -e # Exit immediately if a command fails
 
-echo "Installing Python dependencies..."
-pip install -r requirements.txt
-
-echo "Compiling C++ planner..."
+# Compile the C++ logic (must name it 'path_planner' to match app.py)
 g++ -std=c++17 -O3 main.cpp grid.cpp search.cpp metrics.cpp output.cpp -o path_planner
 
+# Install Python dependencies
 pip install -r requirements.txt
-
-echo "Build complete. Planner compiled successfully."
-ls -la planner
