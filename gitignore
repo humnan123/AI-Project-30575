@@ -1,0 +1,24 @@
+# compiled executables
+planner
+planner.exe
+*.o
+*.out
+
+# generated data files - these are created at runtime
+result.json
+grid.csv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
