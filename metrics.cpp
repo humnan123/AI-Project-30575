@@ -1,6 +1,10 @@
 <<<<<<< HEAD
 //Humna Naveed 30575
 #pragma once
+#include <cstddef>   
+#include <vector>     
+#include <initializer_list> 
+#include <iostream>
 #include "grid.cpp"
 #include <vector>
 #include<cmath>

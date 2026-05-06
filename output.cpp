@@ -4,6 +4,10 @@
 #include "grid.cpp"
 #include "metrics.cpp"
 #include <vector>
+#include <cstddef>   
+#include <vector>     
+#include <initializer_list> 
+#include <iostream>
 #include <string>
 #include <fstream>
 #include <iostream>
