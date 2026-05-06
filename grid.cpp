@@ -1,17 +1,16 @@
 <<<<<<< HEAD
-//Humna Naveed 30575
+//Humna Naveed 30575 
 #pragma once
+#include <cstddef>  
+#include <initializer_list>
 #include <vector>
 #include <string>
 #include <iostream>
 #include<utility>
 #include <sstream>
 #include <stdexcept>
-#include <fstream>
-#include <cstddef>   
+#include <fstream> 
 #include <vector>     
-#include <initializer_list> 
-#include <iostream>
 using namespace std;
 
 enum celltype {
