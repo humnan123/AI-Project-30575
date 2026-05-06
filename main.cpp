@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //Humna Naveed 30575
 #include <cstddef>  
 #include <initializer_list>
@@ -216,4 +215,4 @@ int main(int argc, char* argv[]) {
     writeJSON(g, start, target, results);
     return 0;
 }
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
+

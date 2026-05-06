@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //Humna Naveed 30575 
 #pragma once
 #include <cstddef>  
@@ -231,5 +230,4 @@ public:
         }
         throw invalid_argument("cell not found");
     }
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 };

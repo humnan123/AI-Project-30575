@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //Humna Naveed 30575
 #pragma once
 #include <cstddef>  
@@ -449,4 +448,3 @@ vector<pair<int,int>> greedy(Grid& grid, pair<int,int> start, pair<int,int> targ
     reverse(path.begin(), path.end());
     return path;
 }
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d

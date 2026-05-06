@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //Humna Naveed 30575
 #pragma once
 #include <cstddef>  
@@ -197,5 +196,4 @@ vector<pair<int,int>> smoothpath(const Grid& grid,const vector<pair<int,int>>& p
         i = j;
     }
     return smooth;
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 }

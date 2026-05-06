@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 //Humna Naveed 30575
 #pragma once
 #include <cstddef>  
@@ -162,5 +162,4 @@ void writeJSON(const Grid& grid, std::pair<int,int> start, std::pair<int,int> ta
 
     f.close();             
     std::cout << "result.json written successfully\n";
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 }
