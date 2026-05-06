@@ -12,9 +12,7 @@ import shutil
 
 app = Flask(__name__, static_folder='.')
 
-# ─────────────────────────────────────────────
-# STATIC FILE SERVING
-# ─────────────────────────────────────────────
+
 
 @app.route('/')
 def index():
@@ -28,9 +26,7 @@ def static_files(filename):
         return send_from_directory('.', filename)
     return jsonify({'error': 'Not allowed'}), 403
 
-# ─────────────────────────────────────────────
-# RUN PLANNER ENDPOINT
-# ─────────────────────────────────────────────
+
 
 @app.route('/run', methods=['POST'])
 def run_planner():
@@ -98,9 +94,6 @@ def run_planner():
         return jsonify({'error': str(e)}), 500
 
 
-# ─────────────────────────────────────────────
-# HEALTH CHECK
-# ─────────────────────────────────────────────
 
 @app.route('/health')
 def health():

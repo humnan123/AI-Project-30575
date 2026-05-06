@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-<!-- Humna Naveed 30575 -->
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,10 +32,7 @@
     padding: 24px;
   }
 
-<<<<<<< HEAD
   /* Header */
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   .header {
     display: flex;
     align-items: flex-start;
@@ -65,10 +58,7 @@
     letter-spacing: .04em;
   }
 
-<<<<<<< HEAD
   /* Page tabs */
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   .page-tabs {
     display: flex;
     gap: 4px;
@@ -100,17 +90,11 @@
   }
   .page-tab:hover:not(.active) { color: var(--text3); }
 
-<<<<<<< HEAD
   /* Page sections */
   .page { display: none; }
   .page.active { display: block; }
 
   /* Buttons */
-=======
-  .page { display: none; }
-  .page.active { display: block; }
-
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   .btn {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
@@ -132,10 +116,7 @@
   .btn-danger { background: #1a0a0a; border: 1px solid #3a1a1a; color: #f43f5e; }
   .btn-danger:hover { border-color: #f43f5e; }
 
-<<<<<<< HEAD
   /* Status bar */
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   .status-bar {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
@@ -153,10 +134,7 @@
   .status-dot.active { background: var(--accent); box-shadow: 0 0 6px var(--accent); }
   .status-dot.warn { background: #f59e0b; box-shadow: 0 0 6px #f59e0b; }
 
-<<<<<<< HEAD
   /* ─── EDITOR PAGE ─── */
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   .editor-layout { display: grid; grid-template-columns: 1fr 220px; gap: 16px; align-items: start; }
 
   .panel {
@@ -179,10 +157,7 @@
     border-bottom: 1px solid var(--border);
   }
 
-<<<<<<< HEAD
   /* Paint toolbar */
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   .paint-tools { display: flex; flex-direction: column; gap: 4px; }
   .paint-btn {
     display: flex;
@@ -203,10 +178,7 @@
   .paint-btn.active { border-color: var(--accent); color: var(--accent); background: var(--bg3); }
   .paint-swatch { width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.1); }
 
-<<<<<<< HEAD
   /* Editor canvas */
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   .canvas-wrap {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -231,10 +203,7 @@
   }
   .hint-box strong { color: var(--accent); }
 
-<<<<<<< HEAD
   /* Grid size controls */
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   .size-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
   .size-row label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text2); width: 40px; }
   .size-input {
@@ -250,10 +219,7 @@
   }
   .size-input:focus { border-color: var(--accent); }
 
-<<<<<<< HEAD
   /* ─── RESULTS PAGE ─── */
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   .algo-tabs { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
   .tab {
     font-family: 'JetBrains Mono', monospace;
@@ -299,10 +265,7 @@
   .empty { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text2); text-align: center; padding: 20px 0; }
 
 
-<<<<<<< HEAD
   /* Replay + heatmap controls */
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   .view-controls { display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap; align-items:center; }
   .view-btn {
     font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600;
@@ -373,19 +336,13 @@
   </div>
 </div>
 
-<<<<<<< HEAD
 <!-- Page tabs -->
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 <div class="page-tabs">
   <button class="page-tab active" onclick="showPage('editor')">① Grid Editor</button>
   <button class="page-tab" onclick="showPage('results')">② Results Viewer</button>
 </div>
 
-<<<<<<< HEAD
 <!-- Workflow steps -->
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 <div class="workflow-steps">
   <div class="step"><div class="step-num" id="sn1">1</div>Draw grid in editor</div>
   <div class="step-arrow">→</div>
@@ -403,7 +360,6 @@
   <span id="status-text">Draw your body grid, place S (entry) and T (tumour), then export CSV</span>
 </div>
 
-<<<<<<< HEAD
 <!-- ═══════════════════════════════════ EDITOR PAGE ═══════════════════════════════════ -->
 <div class="page active" id="page-editor">
   <div class="editor-layout">
@@ -413,14 +369,6 @@
       <canvas id="editor-canvas"></canvas>
       <div class="editor-actions">
         <button class="btn btn-run" id="btn-editor-run" onclick="exportAndRun()" style="display:none">▶ Run planner</button>
-=======
-<div class="page active" id="page-editor">
-  <div class="editor-layout">
-
-    <div class="canvas-wrap">
-      <canvas id="editor-canvas"></canvas>
-      <div class="editor-actions">
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
         <button class="btn btn-success" onclick="exportCSV()">Export grid.csv</button>
         <button class="btn btn-ghost" onclick="loadExample(0)">Example 1</button>
         <button class="btn btn-ghost" onclick="loadExample(1)">Example 2</button>
@@ -474,7 +422,6 @@
 
 <div class="page" id="page-results">
 
-<<<<<<< HEAD
   <!-- cloud mode banner — shown when running on Render -->
   <div class="cloud-banner" id="cloud-banner" style="display:none">
     <div class="cloud-dot"></div>
@@ -484,19 +431,12 @@
   <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
     <button class="btn btn-run" id="btn-run-server" onclick="runOnServer()" style="display:none">▶ Run planner</button>
     <button class="btn btn-primary" id="btn-load-json" onclick="loadResultJSON()">Load result.json</button>
-=======
-  <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
-    <button class="btn btn-primary" onclick="loadResultJSON()">Load result.json</button>
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
     <button class="btn btn-ghost" onclick="loadDemo()">Load demo data</button>
   </div>
 
   <div class="algo-tabs" id="algo-tabs"></div>
 
-<<<<<<< HEAD
   <!-- View mode controls -->
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   <div class="view-controls">
     <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text2);margin-right:4px">View:</span>
     <button class="view-btn active" id="vbtn-path" onclick="setViewMode('path')">Path animation</button>
@@ -504,10 +444,7 @@
     <button class="view-btn" id="vbtn-replay" onclick="setViewMode('replay')">Step replay</button>
   </div>
 
-<<<<<<< HEAD
   <!-- Replay bar (shown in replay mode) -->
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   <div class="replay-bar" id="replay-bar">
     <div class="replay-btns">
       <button class="replay-btn" onclick="replayStep(-10)">«</button>
@@ -555,11 +492,7 @@
 </div>
 
 <script>
-<<<<<<< HEAD
 // ═══════════════════════════ SHARED DATA ═══════════════════════════
-=======
-
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 const CELL_TYPES = [
   { code:1, label:'Safe tissue', editorColor:'#1a3a2a', border:'#2d6a4a', paintColor:'#22543d' },
   { code:2, label:'Minor organ', editorColor:'#3a3a1a', border:'#6a6a2a', paintColor:'#744210' },
@@ -568,29 +501,9 @@ const CELL_TYPES = [
   { code:8, label:'Entry (S)',   editorColor:'#1a2a3a', border:'#2a4a6a', paintColor:'#1a365d' },
   { code:9, label:'Tumour (T)', editorColor:'#2a1a3a', border:'#5a2a7a', paintColor:'#44337a' },
 ];
-<<<<<<< HEAD
 const ALGO_COLORS = { 'BFS':'#f43f5e', 'Greedy':'#f59e0b', 'A*':'#10b981', 'UCS':'#818cf8' };
 
 // ═══════════════════════════ PAGE SWITCHING ═══════════════════════════
-=======
-const ALGO_COLORS = {
-  'BFS':               '#f43f5e',
-  'UCS':               '#818cf8',
-  'Greedy Manhattan':  '#f59e0b',
-  'Greedy Euclidean':  '#fb923c',
-  'Greedy Chebyshev':  '#fbbf24',
-  'A* Manhattan':      '#10b981',
-  'A* Euclidean':      '#34d399',
-  'A* Chebyshev':      '#6ee7b7',
-};
-function getAlgoColor(name) {
-  if (ALGO_COLORS[name]) return ALGO_COLORS[name];
-  for (const key of Object.keys(ALGO_COLORS))
-    if (name.startsWith(key)) return ALGO_COLORS[key];
-  return '#94a3b8';
-}
-
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
@@ -600,10 +513,7 @@ function showPage(name) {
   if (name === 'editor') setTimeout(redrawEditor, 50);
 }
 
-<<<<<<< HEAD
 // ═══════════════════════════ EDITOR ═══════════════════════════
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 let ROWS = 20, COLS = 30;
 let editorGrid = [];
 let selectedType = 1;
@@ -675,10 +585,7 @@ function paintCell(e) {
   const [r, c] = getCellAt(canvas, e);
   if (r < 0 || r >= ROWS || c < 0 || c >= COLS) return;
 
-<<<<<<< HEAD
   // enforce single S and single T
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   if (selectedType === 8 || selectedType === 9) {
     for (let rr = 0; rr < ROWS; rr++)
       for (let cc = 0; cc < COLS; cc++)
@@ -704,10 +611,7 @@ function resizeGrid() {
     setStatus('Rows: 4-80, Cols: 4-100', false);
     return;
   }
-<<<<<<< HEAD
   // preserve existing cells, fill new ones with tissue
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   const newGrid = Array.from({ length: newRows }, (_, r) =>
     Array.from({ length: newCols }, (_, c) =>
       (r < ROWS && c < COLS) ? editorGrid[r][c] : 1
@@ -726,10 +630,7 @@ function clearGrid() {
 }
 
 function exportCSV() {
-<<<<<<< HEAD
   // validate S and T exist
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   let hasS = false, hasT = false;
   for (let r = 0; r < ROWS; r++)
     for (let c = 0; c < COLS; c++) {
@@ -748,10 +649,7 @@ function exportCSV() {
   a.download = 'grid.csv';
   a.click();
 
-<<<<<<< HEAD
   // mark step 2 done
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   document.getElementById('sn1').classList.add('done');
   document.getElementById('sn2').classList.add('done');
   setStatus('grid.csv exported — now run your C++ executable, then load result.json in Results tab', true);
@@ -815,18 +713,11 @@ function loadExample(idx) {
   setStatus(`Loaded example: ${ex.name}`, true);
 }
 
-<<<<<<< HEAD
 // ═══════════════════════════ RESULTS VIEWER ═══════════════════════════
 let resultsData = null;
 let activeAlgo = 0;
 let animFrame = null;
 let viewMode = 'path';  // 'path' | 'heatmap' | 'replay'
-=======
-let resultsData = null;
-let activeAlgo = 0;
-let animFrame = null;
-let viewMode = 'path';  
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 let replayPos = 0;
 let replayPlaying = false;
 let replayTimer = null;
@@ -840,10 +731,7 @@ const CELL_DISPLAY = {
   8: { fill:'#1a2a3a', border:'#2a4a6a' }
 };
 
-<<<<<<< HEAD
 // ── Canvas setup ──
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 function getCanvas() { return document.getElementById('results-canvas'); }
 
 function setupCanvas(canvas, cols, rows) {
@@ -854,10 +742,7 @@ function setupCanvas(canvas, cols, rows) {
   return CS;
 }
 
-<<<<<<< HEAD
 // ── Base grid draw ──
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 function drawBaseGrid(ctx, CS, pathSet, dotColor) {
   const rows = resultsData.grid.length;
   const cols = resultsData.grid[0].length;
@@ -888,11 +773,7 @@ function drawBaseGrid(ctx, CS, pathSet, dotColor) {
   }
 }
 
-<<<<<<< HEAD
 // ── PATH MODE ──
-=======
-
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 function drawResultsGrid(pathCells) {
   if (!resultsData) return;
   const canvas = getCanvas();
@@ -914,39 +795,26 @@ function animatePath(path) {
   step();
 }
 
-<<<<<<< HEAD
 // ── HEATMAP MODE ──
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 function drawHeatmap() {
   if (!resultsData) return;
   const result = resultsData.results[activeAlgo];
   const explored = result.explored || [];
   const path = result.path || [];
   const algoName = result.name;
-<<<<<<< HEAD
   const pathColor = ALGO_COLORS[algoName] || '#ef5350';  // captured once
-=======
-  const pathColor = ALGO_COLORS[algoName] || '#ef5350'; 
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 
   const canvas = getCanvas();
   const rows = resultsData.grid.length, cols = resultsData.grid[0].length;
   const CS = setupCanvas(canvas, cols, rows);
   const ctx = canvas.getContext('2d');
 
-<<<<<<< HEAD
   // draw base grid
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   drawBaseGrid(ctx, CS, null, null);
 
   const total = explored.length;
   if (total === 0) {
-<<<<<<< HEAD
     // no explored data — shade path cells as fallback
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
     const pathSet = new Set(path.map(p => p[0]+','+p[1]));
     path.forEach(([r,c]) => {
       ctx.fillStyle = pathColor;
@@ -955,10 +823,7 @@ function drawHeatmap() {
       ctx.globalAlpha = 1;
     });
   } else {
-<<<<<<< HEAD
     // colour each explored cell by when it was visited
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
     const heatVal = {};
     explored.forEach(([r,c], i) => { heatVal[r+','+c] = i / total; });
     explored.forEach(([r,c]) => {
@@ -972,10 +837,7 @@ function drawHeatmap() {
     });
   }
 
-<<<<<<< HEAD
   // draw final path on top with consistent colour
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   path.forEach(([r,c]) => {
     const v = resultsData.grid[r][c];
     if (v === 8 || v === 9) return;
@@ -987,10 +849,7 @@ function drawHeatmap() {
     ctx.globalAlpha = 1;
   });
 
-<<<<<<< HEAD
   // redraw S and T labels on top
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
       const v = resultsData.grid[r][c];
@@ -1004,19 +863,12 @@ function drawHeatmap() {
   }
 }
 
-<<<<<<< HEAD
 // ── REPLAY MODE ──
-=======
-
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 function getReplayFrames() {
   if (!resultsData) return [];
   const result = resultsData.results[activeAlgo];
   const explored = result.explored || [];
-<<<<<<< HEAD
   // if no explored data, use path cells as frames
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   if (explored.length === 0) return result.path || [];
   return explored;
 }
@@ -1027,11 +879,7 @@ function drawReplayFrame(pos) {
   const result = resultsData.results[activeAlgo];
   const path = result.path || [];
   const algoName = result.name;
-<<<<<<< HEAD
   const pathColor = ALGO_COLORS[algoName] || '#ef5350';  // captured once
-=======
-  const pathColor = ALGO_COLORS[algoName] || '#ef5350';
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 
   const canvas = getCanvas();
   const rows = resultsData.grid.length, cols = resultsData.grid[0].length;
@@ -1040,10 +888,7 @@ function drawReplayFrame(pos) {
 
   drawBaseGrid(ctx, CS, null, null);
 
-<<<<<<< HEAD
   // shade explored cells up to current step
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   const exploredSoFar = frames.slice(0, pos);
   exploredSoFar.forEach(([r,c], i) => {
     const t = i / Math.max(frames.length, 1);
@@ -1054,10 +899,7 @@ function drawReplayFrame(pos) {
     ctx.fillRect(c * CS, r * CS, CS, CS);
   });
 
-<<<<<<< HEAD
   // once all explored show the final path with consistent colour
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   if (pos >= frames.length) {
     path.forEach(([r,c]) => {
       const v = resultsData.grid[r][c];
@@ -1071,10 +913,7 @@ function drawReplayFrame(pos) {
     });
   }
 
-<<<<<<< HEAD
   // always redraw S and T on top so they stay visible
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
       const v = resultsData.grid[r][c];
@@ -1087,10 +926,7 @@ function drawReplayFrame(pos) {
     }
   }
 
-<<<<<<< HEAD
   // update slider and counter
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   document.getElementById('replay-slider').value = pos;
   document.getElementById('replay-counter').textContent = pos + ' / ' + frames.length;
 }
@@ -1129,10 +965,7 @@ function stopReplayPlay() {
   if (replayTimer) { clearInterval(replayTimer); replayTimer = null; }
 }
 
-<<<<<<< HEAD
 // ── VIEW MODE SWITCHING ──
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 function setViewMode(mode) {
   viewMode = mode;
   if (animFrame) cancelAnimationFrame(animFrame);
@@ -1164,7 +997,6 @@ function setViewMode(mode) {
 
 function updateStats(idx) {
   const r = resultsData.results[idx];
-<<<<<<< HEAD
   const color = ALGO_COLORS[r.name] || '#ef5350';
   document.getElementById('stats-panel').innerHTML = `
     <div class="panel-title" style="color:${color}">${r.name} — results</div>
@@ -1173,21 +1005,6 @@ function updateStats(idx) {
     <div class="stat-row"><span class="stat-label">Nodes explored</span><span class="stat-val">${r.nodesExplored}</span></div>
     <div class="stat-row"><span class="stat-label">Organ crossings</span><span class="stat-val">${r.organCrossings}</span></div>
     <div class="stat-row"><span class="stat-label">Time taken to run(ms)</span><span class="stat-val">${r.timeMs}</span></div>
-=======
-  const color = getAlgoColor(r.name);
-  const rawLen = r.rawPathLength || r.pathLength;
-  const reduction = rawLen > 0 ? (((rawLen - r.pathLength) / rawLen) * 100).toFixed(1) : '0.0';
-  const isBest = isBestAlgo(idx);
-  document.getElementById('stats-panel').innerHTML = `
-    <div class="panel-title" style="color:${color}">${r.name} — results</div>
-    ${isBest ? `<div style="background:#10b98122;border:1px solid #10b981;border-radius:6px;padding:8px 10px;margin-bottom:10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;display:flex;align-items:center;gap:6px"><span style="font-size:14px">✦</span> Recommended surgical approach — best safety &amp; efficiency balance</div>` : ''}
-    <div class="stat-row"><span class="stat-label">Raw path length</span><span class="stat-val">${rawLen} cells</span></div>
-    <div class="stat-row"><span class="stat-label">Smoothed path</span><span class="stat-val">${r.pathLength} cells <span style="color:#10b981;font-size:10px">(−${reduction}%)</span></span></div>
-    <div class="stat-row"><span class="stat-label">Danger cost</span><span class="stat-val">${r.dangerCost}</span></div>
-    <div class="stat-row"><span class="stat-label">Nodes explored</span><span class="stat-val">${r.nodesExplored}</span></div>
-    <div class="stat-row"><span class="stat-label">Organ crossings</span><span class="stat-val">${r.organCrossings}</span></div>
-    <div class="stat-row"><span class="stat-label">Time</span><span class="stat-val">${(r.timeMs||0).toFixed(2)} ms</span></div>
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
     <div class="stat-row"><span class="stat-label">Safety score</span>
       <span class="stat-val" style="color:${r.safetyScore>95?'#10b981':r.safetyScore>85?'#f59e0b':'#f43f5e'}">
         ${r.safetyScore.toFixed(1)}%
@@ -1195,19 +1012,6 @@ function updateStats(idx) {
     </div>`;
 }
 
-<<<<<<< HEAD
-=======
-function isBestAlgo(idx) {
-  if (!resultsData) return false;
-  const res = resultsData.results;
-  const r = res[idx];
-  const zeroOrgans = res.filter(x => x.organCrossings === 0);
-  if (zeroOrgans.length === 0 || r.organCrossings > 0) return false;
-  const bestSafety = Math.max(...zeroOrgans.map(x => x.safetyScore));
-  return r.safetyScore === bestSafety;
-}
-
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 function updateCompare() {
   const res = resultsData.results;
   const minNodes = Math.min(...res.map(r => r.nodesExplored));
@@ -1216,7 +1020,6 @@ function updateCompare() {
   const maxCost  = Math.max(...res.map(r => r.dangerCost));
   const minLen   = Math.min(...res.map(r => r.pathLength));
   const maxLen   = Math.max(...res.map(r => r.pathLength));
-<<<<<<< HEAD
   const minTime  = Math.min(...res.map(r => r.timeMs)); 
   const maxTime  = Math.max(...res.map(r => r.timeMs));  
 
@@ -1241,43 +1044,6 @@ function updateCompare() {
     <div style="margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text2)">
       <span style="color:#10b981">■</span> best &nbsp;
       <span style="color:#f43f5e">■</span> worst
-=======
-  const minTime  = Math.min(...res.map(r => r.timeMs || 0));
-  const maxTime  = Math.max(...res.map(r => r.timeMs || 0));
-  const maxSafe  = Math.max(...res.map(r => r.safetyScore));
-
-  const bestIdx = res.findIndex((_, i) => isBestAlgo(i));
-
-  let html = `<table class="compare-table">
-    <tr><th>Algorithm</th><th>Smooth</th><th>Cost</th><th>Nodes</th><th>Time</th><th>Safe%</th><th></th></tr>`;
-  res.forEach((r, i) => {
-    const cc  = r.dangerCost    === minCost  ? 'best' : r.dangerCost    === maxCost  ? 'worst' : '';
-    const nc  = r.nodesExplored === minNodes ? 'best' : r.nodesExplored === maxNodes ? 'worst' : '';
-    const lc  = r.pathLength    === minLen   ? 'best' : r.pathLength    === maxLen   ? 'worst' : '';
-    const tc  = (r.timeMs||0)   === minTime  ? 'best' : (r.timeMs||0)   === maxTime  ? 'worst' : '';
-    const sc  = r.safetyScore   === maxSafe  ? 'best' : '';
-    const color = getAlgoColor(r.name);
-    const star = i === bestIdx ? `<span style="color:#10b981;font-size:12px" title="Recommended">✦</span>` : '';
-    const rawLen = r.rawPathLength || r.pathLength;
-    const smoothInfo = rawLen !== r.pathLength
-      ? `${r.pathLength} <span style="color:#10b981;font-size:9px">(raw:${rawLen})</span>`
-      : `${r.pathLength}`;
-    html += `<tr style="${i === activeAlgo ? 'background:rgba(255,255,255,0.04)' : ''}">
-      <td style="color:${color};font-size:10px">${r.name}</td>
-      <td class="${lc}">${smoothInfo}</td>
-      <td class="${cc}">${r.dangerCost}</td>
-      <td class="${nc}">${r.nodesExplored}</td>
-      <td class="${tc}">${(r.timeMs||0).toFixed(1)}ms</td>
-      <td class="${sc}">${r.safetyScore.toFixed(1)}%</td>
-      <td>${star}</td>
-    </tr>`;
-  });
-  html += `</table>
-    <div style="margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text2);display:flex;gap:12px;flex-wrap:wrap">
-      <span><span style="color:#10b981">■</span> best</span>
-      <span><span style="color:#f43f5e">■</span> worst</span>
-      <span><span style="color:#10b981">✦</span> recommended</span>
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
     </div>`;
   document.getElementById('compare-area').innerHTML = html;
 }
@@ -1286,18 +1052,10 @@ function buildAlgoTabs() {
   const tb = document.getElementById('algo-tabs');
   tb.innerHTML = '';
   resultsData.results.forEach((r, i) => {
-<<<<<<< HEAD
     const color = ALGO_COLORS[r.name] || '#ef5350';
     const t = document.createElement('div');
     t.className = 'tab' + (i === activeAlgo ? ' active' : '');
     t.textContent = r.name;
-=======
-    const color = getAlgoColor(r.name);
-    const best = isBestAlgo(i);
-    const t = document.createElement('div');
-    t.className = 'tab' + (i === activeAlgo ? ' active' : '');
-    t.innerHTML = (best ? '<span style="color:#10b981;margin-right:4px">✦</span>' : '') + r.name;
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
     if (i === activeAlgo) {
       t.style.borderColor = color;
       t.style.color = color;
@@ -1319,16 +1077,7 @@ function renderResults() {
   updateCompare();
   document.getElementById('sn4').classList.add('done');
   document.getElementById('sn5').classList.add('done');
-<<<<<<< HEAD
   setStatus(`Loaded — Grid ${resultsData.grid.length}×${resultsData.grid[0].length} · ${resultsData.results.length} algorithms`, true);
-=======
-  const g = resultsData.grid;
-  setStatus(`Loaded — Grid ${g.length}×${g[0].length} · ${resultsData.results.length} algorithms`, true);
-  const bestIdx = resultsData.results.findIndex((_, i) => isBestAlgo(i));
-  if (bestIdx >= 0) activeAlgo = bestIdx;
-  buildAlgoTabs();
-  updateStats(activeAlgo);
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
   setViewMode('path');
 }
 
@@ -1373,17 +1122,13 @@ function loadDemo() {
   renderResults();
 }
 
-<<<<<<< HEAD
 // ═══════════════════════════ STATUS ═══════════════════════════
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 function setStatus(msg, state) {
   document.getElementById('status-text').textContent = msg;
   const dot = document.getElementById('status-dot');
   dot.className = 'status-dot' + (state === true ? ' active' : state === 'warn' ? ' warn' : '');
 }
 
-<<<<<<< HEAD
 // ═══════════════════════════ INIT ═══════════════════════════
 // ─── CLOUD / SERVER MODE ───
 const IS_CLOUD = window.location.protocol === 'https:' ||
@@ -1461,16 +1206,11 @@ async function exportAndRun() {
   await runOnServer();
 }
 
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 initEditorGrid();
 loadExample(0);
 buildPaintTools();
 initEditorEvents();
-<<<<<<< HEAD
 initCloudMode();
-=======
->>>>>>> 25db3816c3bdba76abdf6e5701011888b91e726d
 </script>
 </body>
 </html>
