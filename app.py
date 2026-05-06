@@ -4,8 +4,21 @@ import json
 import os
 
 app = Flask(__name__, static_folder='.')
+import subprocess
+import json
 
-# serve the HTML frontend
+def get_surgical_path(start_node, end_node):
+    result = subprocess.run(
+        ['./path_planner', str(start_node), str(end_node)], 
+        capture_output=True, 
+        text=True
+    )
+    
+    if result.returncode == 0:
+        return result.stdout 
+    else:
+        return f"Error: {result.stderr}"
+
 @app.route('/')
 def index():
     return send_from_directory('.', 'surgical_planner_complete.html')
