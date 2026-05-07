@@ -1083,7 +1083,7 @@ function renderResults() {
 
 async function loadResultJSON() {
   try {
-    const res = await fetch('result.json');
+    const res = await fetch('/result');
     if (!res.ok) throw new Error();
     resultsData = await res.json();
     activeAlgo = 0;

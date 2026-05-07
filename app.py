@@ -1,5 +1,6 @@
 import os
 import subprocess
+import json
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
@@ -13,6 +14,12 @@ EXE_PATH = "./path_planner"
 def index():
     # This serves your surgical_planner_complete.html file
     return render_template('surgical_planner_complete.html')
+@app.route('/result')
+def get_result():
+    if not os.path.exists('result.json'):
+        return jsonify({'error': 'No result yet'}), 404
+    with open('result.json', 'r') as f:
+        return jsonify(json.load(f))
 
 @app.route('/plan', methods=['POST'])
 def plan_path():
