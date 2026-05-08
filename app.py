@@ -1,67 +1,99 @@
 import os
 import subprocess
 import json
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='.')
 
-# 1. Configuration
-# Render uses port 10000 by default, but we'll be flexible
-PORT = int(os.environ.get("PORT", 10000))
-EXE_PATH = "./path_planner"
+# ─────────────────────────────────────────────
+# STATIC FILE SERVING
+# ─────────────────────────────────────────────
 
 @app.route('/')
 def index():
-    # This serves your surgical_planner_complete.html file
-    return render_template('surgical_planner_complete.html')
-@app.route('/result')
-def get_result():
-    if not os.path.exists('result.json'):
-        return jsonify({'error': 'No result yet'}), 404
-    with open('result.json', 'r') as f:
-        return jsonify(json.load(f))
+    return send_from_directory('.', 'surgical_planner_complete.html')
 
-@app.route('/plan', methods=['POST'])
-def plan_path():
-    """
-    Receives start and end coordinates, runs the C++ A* logic,
-    and returns the coordinates of the path.
-    """
+@app.route('/<path:filename>')
+def static_files(filename):
+    allowed = ['.html', '.css', '.js', '.json', '.csv', '.png', '.ico', '.py']
+    if any(filename.endswith(ext) for ext in allowed):
+        return send_from_directory('.', filename)
+    return jsonify({'error': 'Not allowed'}), 403
+
+# ─────────────────────────────────────────────
+# RUN PLANNER ENDPOINT
+# ─────────────────────────────────────────────
+
+@app.route('/run', methods=['POST'])
+def run_planner():
     try:
-        data = request.get_json()
-        if not data:
-            return jsonify({"error": "No input data provided"}), 400
+        data = request.get_json(force=True)
+        if not data or 'grid' not in data:
+            return jsonify({'error': 'No grid data provided'}), 400
 
-        start_node = data.get('start')
-        end_node = data.get('end')
+        grid_csv = data['grid']
 
-        # 2. Execution of C++ Binary
-        # We assume your C++ code outputs the path as a string of coordinates
-        process = subprocess.run(
-            [EXE_PATH, str(start_node), str(end_node)],
+        # validate basic structure
+        rows = grid_csv.strip().split('\n')
+        if len(rows) < 2:
+            return jsonify({'error': 'Grid too small'}), 400
+
+        # check entry (8) and tumour (9) exist
+        flat = grid_csv.replace('\n', ',').split(',')
+        values = [v.strip() for v in flat if v.strip()]
+        if '8' not in values:
+            return jsonify({'error': 'No entry point (S) found'}), 400
+        if '9' not in values:
+            return jsonify({'error': 'No tumour (T) found'}), 400
+
+        # write grid to file
+        with open('grid.csv', 'w') as f:
+            f.write(grid_csv)
+
+        # find planner executable
+        planner = './planner'
+        if not os.path.exists(planner):
+            return jsonify({'error': 'Planner not found — build may have failed'}), 500
+
+        # run planner
+        result = subprocess.run(
+            [planner],
             capture_output=True,
             text=True,
-            timeout=15  # Prevents long-running AI logic from hanging the server
+            timeout=60
         )
 
-        if process.returncode != 0:
+        if result.returncode != 0:
             return jsonify({
-                "error": "C++ Planner failed",
-                "details": process.stderr
+                'error': 'Planner failed',
+                'details': result.stderr or result.stdout
             }), 500
 
-        # 3. Return the result to the frontend
-        return jsonify({
-            "status": "success",
-            "path": process.stdout.strip()
-        })
+        # read and return result.json
+        if not os.path.exists('result.json'):
+            return jsonify({'error': 'result.json not created'}), 500
 
+        with open('result.json', 'r') as f:
+            return jsonify(json.load(f))
+
+    except subprocess.TimeoutExpired:
+        return jsonify({'error': 'Timed out — try a smaller grid'}), 500
+    except json.JSONDecodeError:
+        return jsonify({'error': 'result.json is not valid JSON'}), 500
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({'error': str(e)}), 500
 
-if __name__ == "__main__":
-    # Ensure the C++ binary is actually there before starting
-    if not os.path.exists(EXE_PATH):
-        print(f"WARNING: {EXE_PATH} not found. Did the build.sh fail?")
-    
-    app.run(host='0.0.0.0', port=PORT)
+# ─────────────────────────────────────────────
+# HEALTH CHECK
+# ─────────────────────────────────────────────
+
+@app.route('/health')
+def health():
+    return jsonify({
+        'status': 'ok',
+        'planner': 'ready' if os.path.exists('./planner') else 'missing'
+    })
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 10000))
+    app.run(host='0.0.0.0', port=port)
