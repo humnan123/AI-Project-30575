@@ -1,4 +1,4 @@
-"""
+""" Humna Naveed 30575
     python mri_to_grid.py scan.dcm
     python mri_to_grid.py scan.dcm --entry 10,5 --tumour 80,120
     python mri_to_grid.py scan.dcm --scale 0.5 --entry 10,5 --tumour 80,120 --preview

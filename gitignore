@@ -4,7 +4,7 @@ planner.exe
 *.o
 *.out
 
-# generated data files - these are created at runtime
+# generated data files
 result.json
 grid.csv
 
