@@ -501,7 +501,31 @@ const CELL_TYPES = [
   { code:8, label:'Entry (S)',   editorColor:'#1a2a3a', border:'#2a4a6a', paintColor:'#1a365d' },
   { code:9, label:'Tumour (T)', editorColor:'#2a1a3a', border:'#5a2a7a', paintColor:'#44337a' },
 ];
-const ALGO_COLORS = { 'BFS':'#f43f5e', 'Greedy':'#f59e0b', 'A*':'#10b981', 'UCS':'#818cf8' };
+const ALGO_COLORS = {
+  'BFS':               '#f43f5e',
+  'UCS':               '#818cf8',
+  'Greedy Manhattan':  '#f59e0b',
+  'Greedy Euclidean':  '#fb923c',
+  'Greedy Chebyshev':  '#fbbf24',
+  'A* Manhattan':      '#10b981',
+  'A* Euclidean':      '#34d399',
+  'A* Chebyshev':      '#6ee7b7',
+};
+function getAlgoColor(name) {
+  if (ALGO_COLORS[name]) return ALGO_COLORS[name];
+  for (const key of Object.keys(ALGO_COLORS))
+    if (name.startsWith(key)) return ALGO_COLORS[key];
+  return '#94a3b8';
+}
+function isBestAlgo(idx) {
+  if (!resultsData) return false;
+  const res = resultsData.results;
+  const r = res[idx];
+  const zeroOrgans = res.filter(x => x.organCrossings === 0);
+  if (zeroOrgans.length === 0 || r.organCrossings > 0) return false;
+  const bestSafety = Math.max(...zeroOrgans.map(x => x.safetyScore));
+  return r.safetyScore === bestSafety;
+}
 
 // ═══════════════════════════ PAGE SWITCHING ═══════════════════════════
 function showPage(name) {
@@ -997,10 +1021,14 @@ function setViewMode(mode) {
 
 function updateStats(idx) {
   const r = resultsData.results[idx];
-  const color = ALGO_COLORS[r.name] || '#ef5350';
+  const color = getAlgoColor(r.name);
+  const isBest = isBestAlgo(idx);
+  const rawLen = r.rawPathLength || r.pathLength;
+  const reduction = rawLen > r.pathLength ? (((rawLen - r.pathLength) / rawLen) * 100).toFixed(1) : null;
   document.getElementById('stats-panel').innerHTML = `
     <div class="panel-title" style="color:${color}">${r.name} — results</div>
-    <div class="stat-row"><span class="stat-label">Path length</span><span class="stat-val">${r.pathLength} cells</span></div>
+    ${isBest ? `<div style="background:#10b98122;border:1px solid #10b981;border-radius:6px;padding:7px 10px;margin-bottom:10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#10b981;display:flex;align-items:center;gap:6px"><span style="font-size:14px">✦</span> Recommended surgical approach</div>` : ''}
+    <div class="stat-row"><span class="stat-label">Path length</span><span class="stat-val">${r.pathLength} cells${reduction ? ` <span style="color:#10b981;font-size:10px">(−${reduction}% smoothed)</span>` : ''}</span></div>
     <div class="stat-row"><span class="stat-label">Danger cost</span><span class="stat-val">${r.dangerCost}</span></div>
     <div class="stat-row"><span class="stat-label">Nodes explored</span><span class="stat-val">${r.nodesExplored}</span></div>
     <div class="stat-row"><span class="stat-label">Organ crossings</span><span class="stat-val">${r.organCrossings}</span></div>
@@ -1052,10 +1080,11 @@ function buildAlgoTabs() {
   const tb = document.getElementById('algo-tabs');
   tb.innerHTML = '';
   resultsData.results.forEach((r, i) => {
-    const color = ALGO_COLORS[r.name] || '#ef5350';
+    const color = getAlgoColor(r.name);
+    const best = isBestAlgo(i);
     const t = document.createElement('div');
     t.className = 'tab' + (i === activeAlgo ? ' active' : '');
-    t.textContent = r.name;
+    t.innerHTML = (best ? '<span style="color:#10b981;margin-right:4px;font-size:12px">✦</span>' : '') + r.name;
     if (i === activeAlgo) {
       t.style.borderColor = color;
       t.style.color = color;
@@ -1146,15 +1175,12 @@ function initCloudMode() {
 }
 
 async function runOnServer() {
-  if (!resultsData && !editorGrid) {
+  if (!editorGrid) {
     setStatus('Draw a grid in the editor first', 'warn');
     return;
   }
 
-  // collect current editor grid
   const gridStr = editorGrid.map(r => r.join(',')).join('\n');
-
-  // validate S and T
   const flat = editorGrid.flat();
   if (!flat.includes(8)) { setStatus('Place an entry point (S) in the editor first', 'warn'); return; }
   if (!flat.includes(9)) { setStatus('Place a tumour (T) in the editor first', 'warn'); return; }
@@ -1170,17 +1196,24 @@ async function runOnServer() {
       body: JSON.stringify({ grid: gridStr })
     });
 
-    const data = await res.json();
+    const rawText = await res.text();
+
+    let data;
+    try {
+      data = JSON.parse(rawText);
+    } catch(e) {
+      setStatus('Server error — ' + rawText.substring(0, 300), 'warn');
+      return;
+    }
 
     if (!res.ok) {
-      setStatus('Error: ' + (data.error || 'Unknown error'), 'warn');
+      setStatus('Error: ' + (data.error || 'Unknown'), 'warn');
       return;
     }
 
     resultsData = data;
     activeAlgo = 0;
 
-    // switch to results tab automatically
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
     document.getElementById('page-results').classList.add('active');
