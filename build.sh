@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e # Exit immediately if a command fails
+set -e
 
-g++ -std=c++17 -O3 main.cpp -o path_planner
+g++ -std=c++17 -O3 main.cpp -o planner
 pip install -r requirements.txt
